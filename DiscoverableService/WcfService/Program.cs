@@ -114,7 +114,7 @@ namespace EMG.WcfService
             }
 
             var containerMetadata = configuration.Get<ECSContainerMetadata>();
-            
+
             return EndpointAddress.ForHttp(containerMetadata.HostPrivateIPv4Address, endpointAddress.Path, containerMetadata.PortMappings[0].HostPort, endpointAddress.IsSecure);
         }
     }
@@ -132,14 +132,14 @@ namespace EMG.WcfService
         public string DockerContainerName { get; set; }
         public string ImageID { get; set; }
         public string ImageName { get; set; }
-        public Portmapping[] PortMappings { get; set; }
+        public PortMapping[] PortMappings { get; set; }
         public Network[] Networks { get; set; }
         public string MetadataFileStatus { get; set; }
         public string AvailabilityZone { get; set; }
         public string HostPrivateIPv4Address { get; set; }
     }
 
-    public class Portmapping
+    public class PortMapping
     {
         public int ContainerPort { get; set; }
         public int HostPort { get; set; }
